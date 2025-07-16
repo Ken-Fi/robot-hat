@@ -52,9 +52,9 @@ class Ultrasonic():
     def read(self, times=10):
         for i in range(times):
             a = self._read()
-            if a != -1:
+            if a > 0: # To handle -2 generated above
                 return a
-        return -1
+        return a
 
 class ADXL345(I2C):
     """ADXL345 modules"""
